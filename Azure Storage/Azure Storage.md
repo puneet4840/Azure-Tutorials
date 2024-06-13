@@ -31,3 +31,25 @@ It is a storage service used to store structured No SQL data. Imagine data organ
 **Queues**
 
 Queue is to store and retrieve the messages. Queue message is up to 64 kb in size. Queues are generally used to store lists of messages to be processed asynchronously.
+
+### Storage Access Tier
+
+Three types of access tiers:
+
+1 - Hot.
+
+2 - Cool.
+
+3 - Archive.
+
+**Hot Tier**
+
+It is used when data is access more frequently that you need to use quickly. it is costly.
+
+**Cool Tier**
+
+Is is used when data is accessed less frequently.
+
+**Archive Tier**
+
+Is is used when data is rarely accessed.
