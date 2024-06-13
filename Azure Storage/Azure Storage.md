@@ -27,3 +27,7 @@ It is a cloud based file storage solution. It stores data in the form of organiz
 **Tables**
 
 It is a storage service used to store structured No SQL data. Imagine data organized in rows and columns, like a spreadsheet and excel.
+
+**Queues**
+
+Queue is to store and retrieve the messages. Queue message is up to 64 kb in size. Queues are generally used to store lists of messages to be processed asynchronously.
