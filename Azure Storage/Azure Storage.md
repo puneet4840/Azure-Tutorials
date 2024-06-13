@@ -53,3 +53,19 @@ Is is used when data is accessed less frequently.
 **Archive Tier**
 
 Is is used when data is rarely accessed.
+
+### Storage Replication
+
+Storage replication is to make multiple copies of your data in the same region, different region for high availability and durability.
+
+**Locally Redundant Storage (LRS)**
+
+It makes 3 copies of data in the 3 storage boxes the same data center.
+
+**Zone Redundant Storage (ZRS)**
+
+It makes 3 copies of data in multiple data centers in the same region.
+
+**Geo Redundant Storage (GRS)**
+
+It creates 3 copies of data in the primary geo location and other 3 copies in the secondary location.
