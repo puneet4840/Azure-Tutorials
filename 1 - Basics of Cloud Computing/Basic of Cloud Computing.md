@@ -24,11 +24,13 @@ After few years back companies have their own servers. Procuring the servers fro
 
 - Example of Google:
 
-  Google installed 100's or 1000's server inside the racks in its server rooms. These servers are connected through High Speed cables, Switches or Routers. This complete setup is called **_Data Centre_**.
+  Google installed 100's or 1000's server inside the racks in its server rooms. These servers are connected through High Speed cables, Switches or Routers. This complete setup is called **_Data Center_**.
 
 ### Private Cloud Concept
 
 _A Data Center which is dedicated to only one organization is the Private Cloud._
+
+**Definition: A company which has their own data center dedicated to them is called Private Cloud.**
 
 If a company have their own data center so that data center is the private cloud for that company.
 
@@ -40,9 +42,17 @@ Some companies hire the servers from vendors like IBM, HP. So that servers is al
 
 _A Data Center which is owned by an organization and offered its service to other organization in Public Cloud._
 
+**Definition: It is a cloud service that third-party cloud providers like AWS, Azure, etc provide to other companies or people over the internet.**
+
 Now Amazon or Microsoft came into the picture and start AWS and Azure cloud plaforms. Amazon and Microsft have built their data center all over the world and started offering on-demand servers. 
 
 Big companies like Google can afford their own private cloud (Data Center), but mid-scale companies cannot, so this public cloud option has been started for those mid-scale companies.
 
 - **Data Center**: Collection of servers connected with each other is called Data Center.
+
+### Hybrid Cloud Concept.
+
+**Definition: It is a computing environment that combines on-premises data center (also called private cloud) with a public cloud, allowing data and application to be shared between them.**
+
+There are some companies that purchases on-demand cloud services from cloud provider like Azure or AWS and create their on-premises data center to handle sensitive data. This is called hybrid cloud.
 
