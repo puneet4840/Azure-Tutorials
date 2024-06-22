@@ -56,3 +56,15 @@ Big companies like Google can afford their own private cloud (Data Center), but 
 
 There are some companies that purchases on-demand cloud services from cloud provider like Azure or AWS and create their on-premises data center to handle sensitive data. This is called hybrid cloud.
 
+### Vocabulary
+
+**Virtualization**
+
+Virtualization is a technology that allows you to run multiple virtual computers on a single physical computer.
+
+- e.g., Suppose we have a computer with high configuration of 512 GB RAM and 1000 CPU. A developer needs a server to run his application. So we can install a Hyervisor on that computer and logically create 1 CPU or 2 CPU virtual machine or according to the developer's need. On which we can use multiple virtual machines on a single computer.
+
+In case of Azure,  Azure has its own data center with high configuration machine. If a user need a virtual machine then hypervisor logically divide the machine according to the requirement and give it to the user. This is called concept of Virtualization.
+
+Virtualization helps in better utilizing the resources of a single computer by dividing them among multiple virtual machine.
+
