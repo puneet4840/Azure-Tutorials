@@ -28,7 +28,7 @@ After few years back companies have their own servers. Procuring the servers fro
 
 ### Private Cloud Concept
 
-_A Data Center is the Private Cloud._
+_A Data Center which is dedicated to only one organization is the Private Cloud._
 
 If a company have their own data center so that data center is the private cloud for that company.
 
@@ -37,6 +37,8 @@ Nowdays every company has its own data center which we also call private cloud.
 Some companies hire the servers from vendors like IBM, HP. So that servers is also the private cloud for companies, which only that company can use no other company can use it.
 
 ### Public Cloud Concept
+
+_A Data Center which is owned by an organization and offered its service to other organization in Public Cloud._
 
 Now Amazon or Microsoft came into the picture and start AWS and Azure cloud plaforms. Amazon and Microsft have built their data center all over the world and started offering on-demand servers. 
 
