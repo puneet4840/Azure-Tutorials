@@ -68,3 +68,6 @@ In case of Azure,  Azure has its own data center with high configuration machine
 
 Virtualization helps in better utilizing the resources of a single computer by dividing them among multiple virtual machine.
 
+**API**
+
+It stand for Application Programming Interface.
