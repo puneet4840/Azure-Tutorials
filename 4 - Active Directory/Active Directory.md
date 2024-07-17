@@ -10,3 +10,12 @@ Azure Active Directory also called **Entra ID** is the identity and access manag
 
 It stores the details like Users, Groups, Computers, Organizational Units.
 
+### Types of Permissions in Azure:
+
+Three types of permissions are there in azure-
+
+1 - **Azure AD**: Roles
+
+2 - **Subscription**: Account Admin
+
+4 - **Resource or Resource Group**: RBAC
