@@ -72,8 +72,9 @@ Big companies like Google can afford their own private cloud (Data Center), but 
 
 There are some companies that purchases on-demand cloud services from cloud provider like Azure or AWS and create their on-premises data center to handle sensitive data. This is called hybrid cloud.
 
-```Kuch companies esi hoti hain jo Azure se on-demand cloud services purchase karti hain aur sensitive data ko handle karne
-ke liye khud ka on-premises data centre create kar leti hain, isi model ko hybrid cloud kehte hain.
+```
+   Kuch companies esi hoti hain jo Azure se on-demand cloud services purchase karti hain aur sensitive data ko handle karne
+   ke liye khud ka on-premises data centre create kar leti hain, isi model ko hybrid cloud kehte hain.
 ```
 
 ### Vocabulary
