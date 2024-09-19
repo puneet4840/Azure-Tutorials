@@ -30,6 +30,8 @@ After few years back companies have their own servers. Procuring the servers fro
 
 _A Data Center which is dedicated to only one organization is the Private Cloud._
 
+```Ye ek model hai jisme user ka khud ka data centre hota hai.```
+
 **Definition: A company which has their own data center dedicated to them is called Private Cloud.**
 
 If a company have their own data center so that data center is the private cloud for that company.
@@ -43,12 +45,16 @@ Agar company ke paas khud ka data centre hai to vah data centre us company ke li
 
 Aaj ke time par har company ke paas khud ka data centre bhi hota hai jisko hum private cloud bhi bhi kehta hain.
 
-Kuch companies vendors jaise IBM, HP se servers hire karti hain, to vah servers us company ke liye private cloud ho jata hai. Jisko sird vohi company use kar sakti hai aur koi companu use nahi kar sakti.
+Kuch companies vendors jaise IBM, HP se servers hire karti hain, to vah servers us company ke liye private cloud ho jata hai.
+Jisko sirf vohi company use kar sakti hai aur koi company use nahi kar sakti.
 ```
+<br>
 
 ### Public Cloud Concept
 
 _A Data Center which is owned by an organization and offered its service to other organization is Public Cloud._
+
+```Ye ek model hai jisme user cloud providers se on-demand service purchase karta hai ya```
 
 **Definition: It is a cloud service that third-party cloud providers like AWS, Azure, etc provide to other companies or people over the internet.**
 
@@ -60,9 +66,15 @@ Big companies like Google can afford their own private cloud (Data Center), but 
 
 ### Hybrid Cloud Concept.
 
+```Ye ek model hai jisme ek user on-demand services public cloud se use krta hai aur us apne sensitive data ke liye khud ka data centre use karta hai```
+
 **Definition: It is a computing environment that combines on-premises data center (also called private cloud) with a public cloud, allowing data and application to be shared between them.**
 
 There are some companies that purchases on-demand cloud services from cloud provider like Azure or AWS and create their on-premises data center to handle sensitive data. This is called hybrid cloud.
+
+```Kuch companies esi hoti hain jo Azure se on-demand cloud services purchase karti hain aur sensitive data ko handle karne
+ke liye khud ka on-premises data centre create kar leti hain, isi model ko hybrid cloud kehte hain.
+```
 
 ### Vocabulary
 
