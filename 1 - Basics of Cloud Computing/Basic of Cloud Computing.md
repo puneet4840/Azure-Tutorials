@@ -146,3 +146,50 @@ It is a cloud hosted ready-to-use application software. User pay a monthly or an
 
 e.g., Microsoft Office 365, Microsoft Outlook, Gmail are the software where we use them as a saas model.
 
+
+<br>
+<br>
+
+### Virtual Machine
+
+Virtual machine is a remote computer that behaves like aphysical computer with its own CPU, Memory, Storage and Networking.
+
+**How does Azure assings a vm to a user?**
+
+```
+Suppose azure ka ek data centre hai. us data centre main high configuration wala server hai. Azure portal se maine ek
+windows vm ki request ki to Azure ke high configuration wale server par ek hypervisor installed hai. Yeh hypervisor logially
+VM create karta hai.
+
+To protal par request ke according hypervisor us server par logically virtual machine us user ko assign kar deta hai.
+To ek bade server se logically ek requested hissa user ko assign ho jata hai.
+```
+
+Note: Azure does not support in-place upgrade os OS.
+
+**Virtual Machine Components**
+
+When we create a virtual machine that need some basic components in azure or on-premises.
+
+- Operating System.
+- Disk/Storage.
+- Network Interface Card.
+
+Pre-requisite o create azure virtual machine.
+
+- Resource Group.
+- Azure Virtual Network.
+
+**Virtual Machine Disks**
+
+Azure Virtual Mchine disks are the storage resource used to store the operating system, application and data for virtual machine running in the azure cloud.
+
+```
+Azure VM ki disk ek storage resource hoti hai jo operating system, applications aur data ko store karti hai.
+```
+
+Imagine you have a physical computer. It has a Hard Drive where you store all your files, programs and operating system. Azure disks are like virtual hard drives for virtual machines.
+
+There are **Os Disk**, **Data Disk** and **Temprary Disk** in azure vm.
+
+**OS Disk**
