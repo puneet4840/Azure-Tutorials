@@ -38,9 +38,17 @@ Nowdays every company has its own data center which we also call private cloud.
 
 Some companies hire the servers from vendors like IBM, HP. So that servers is also the private cloud for companies, which only that company can use no other company can use it.
 
+```
+Agar company ke paas khud ka data centre hai to vah data centre us company ke liye private cloud bhi khalaya jata hai.
+
+Aaj ke time par har company ke paas khud ka data centre bhi hota hai jisko hum private cloud bhi bhi kehta hain.
+
+Kuch companies vendors jaise IBM, HP se servers hire karti hain, to vah servers us company ke liye private cloud ho jata hai. Jisko sird vohi company use kar sakti hai aur koi companu use nahi kar sakti.
+```
+
 ### Public Cloud Concept
 
-_A Data Center which is owned by an organization and offered its service to other organization in Public Cloud._
+_A Data Center which is owned by an organization and offered its service to other organization is Public Cloud._
 
 **Definition: It is a cloud service that third-party cloud providers like AWS, Azure, etc provide to other companies or people over the internet.**
 
