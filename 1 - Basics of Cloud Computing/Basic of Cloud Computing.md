@@ -193,3 +193,57 @@ Imagine you have a physical computer. It has a Hard Drive where you store all yo
 There are **Os Disk**, **Data Disk** and **Temprary Disk** in azure vm.
 
 **OS Disk**
+OS Disk contains the Opeating System for the virtual machine.
+
+You can only have one os disk attached to a vm.
+
+**Data Disk**
+
+Data disk are additional disk attached to a vm to store data, applications files or other files. 
+
+You can attach multiple data disks to a vm, depending on your storage needs.
+
+It provides persistent storage that persists even if the vm is stopped or deallocated.
+
+**Temporary Disk**
+
+Temporary disks are temporary storage resouce provided by azure vm for temporary data storage.
+
+It is not a persistent and deleted when the vm is deallocated or deleted.
+
+<br>
+
+**Create a duplicate VM from an existing vm**
+
+There are 3 methods to create a duplicate VM from an existing vm:
+
+- Capture Image.
+- Snapshot and Create Managed Disk (simple).
+- Azure VM Scale Set.
+
+**Method - 1: Capture Image**
+
+- Step-1: Stop the VM -
+  ```Before capturing the image stop the vm.```
+
+- Step-2: Capture an Image -
+  ```From the portal, select on capture and capture the image.```
+
+- Step-3: Create a new vm from captured image -
+  ```Navigate to images page in portal. Select the captured image. Click on create vm from the image.```
+
+<br>
+
+**Method - 2: Sanpshot and Create Managed Disk**
+
+- Step-1: Stop the VM -
+  ```Before snapshot stop the vm```
+
+- Step-2: Take OS Disk Snapshot -
+  ```Go to VM Disk page, Select the os disk and click on snapshot.```
+
+- Step-3: Create Managed Disk from snapshot -
+  ```Navigae to snapshot page. Select the snapshot you created and create a disk from it.```
+
+- Step-4: Create a new VM using that disk -
+  ```Navigate to disk page and click on create a new VM. This will attach the disk to a new VM. And your duplicate vm will be created with same login credentials.```
