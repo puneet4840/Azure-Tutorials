@@ -53,3 +53,23 @@ Maximum number using 8 bits = 11111111 => 256
 IP address ke ek part minimum 0 aur maximum 255 ho sakta hai kyuki ek part 8 bits ka hota hai aur 8 bits ko add karne par 255 maximum number aata hai.
 ```
 
+<br>
+
+### Subnet
+
+A subnet is the small network divided from a large network.
+
+subnetting is the process of creating a subnet.
+
+e.g.,
+
+```
+Suppose एक कंपनी का नेटवर्क है उस कंपनी मैं multiple departments हैं जैसे- Finance , Payroll , Sales , Development.
+अगर कंपनी इन सभी departments को एक ही network assign कर देती है|
+अगर किसी सेल्स department के employee ने कोई malicious वेबसाइट access कर ली और hacker के पास device का access आ गया|
+तो हैकर उन सभी device को access कर सकता है तो ये एक company के लिए danger हो सकता है|
+
+तो company इससे बचने के लिए subnetting का उसे सकती है हर department के लिए अलग से एक subnet बना सकते हैं  
+```
+
+**Two types of subnetting :-**
