@@ -20,3 +20,9 @@ IP Address is the unique number assigned to a device to identify a device on a n
 An IPv4 address is a series of four number seperated by dots.
 
 e.g., - 198.168.10.26 
+
+e.g., - 10.1.2.4
+
+Each number ranges between 0 - 255.
+
+<img src="https://github.com/user-attachments/assets/c7464fd6-9028-40f4-b194-bf64bc59e1b1" width="400" height="200">
