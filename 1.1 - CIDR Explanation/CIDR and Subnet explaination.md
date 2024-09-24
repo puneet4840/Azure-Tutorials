@@ -154,6 +154,16 @@ Host ID of ip address identifies a particular device on the network.
 
 <img src="https://github.com/user-attachments/assets/d8b48702-7ffc-43cc-9a0f-135ead4e2e30" width="320" height="150">
 
+<br>
 - **Subnet Mask**
 
-Subnet Mask tells which is the Network portion and which is the Host portion in an ip address.
+Subnet Mask tells which is the Network portion and which is the Host portion in an ip address. Its purpose is to show where the division between the network and host portions of the address is.
+
+<br>
+<br>
+
+### Implementation of CIDR
+
+**CIDR Natation**
+
+<img src="https://github.com/user-attachments/assets/fc8a7bdb-422c-4651-9e55-4eddd05940df" width="400" heigth="200">
