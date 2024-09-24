@@ -166,4 +166,4 @@ Subnet Mask tells which is the Network portion and which is the Host portion in 
 
 **CIDR Natation**
 
-<img src="https://github.com/user-attachments/assets/fc8a7bdb-422c-4651-9e55-4eddd05940df" width="400" heigth="200">
+<img src="https://github.com/user-attachments/assets/fc8a7bdb-422c-4651-9e55-4eddd05940df" width="600" heigth="400">
