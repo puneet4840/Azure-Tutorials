@@ -103,6 +103,32 @@ It is a technique used for allocating IP Addresses more efficiently.
 
 CIDR notation uses format: _IP_Address/Prefix_length_.
 
-e.g.,  192.168.1.0/24
+e.g.,  192.168.10.26/24
 
 <img src="https://github.com/user-attachments/assets/c9f38301-027f-4779-91ea-1a361d789387" width="400" height="180">
+
+```Prefix length (e.g., 24) indicates the number of bits set to 1 in the subnet mask OR How many bits are used for the network protion.```
+
+```In this example /24 means the first 24 bits are reserved for the network, and leaving the last 8 bits for host addresses within that network```
+
+```With CIDR, you can assign the network size based on the needs of the organization.```
+
+<br>
+
+**History of CIDR**
+
+CIDR was introduced in 1993 to slow down the exhaustion of Ip Addresses. Before CIDR was introduced, IP addresses were allocated based on IP classes. These classes had fixed sizes for networks, and they led to inefficiencies, such as wasted IP addresses.
+
+**The Old-Class based system**
+
+- **Class A**: Very large networks (e.g., 10.0.0.0), with around 16 million IP addresses available per network.
+
+- **Class B**: Medium-sized networks (e.g., 172.16.0.0), with around 65,000 IP addresses per network.
+
+- **Class C**: Small networks (e.g., 192.168.0.0), with 256 IP addresses per network.
+
+This class-based system know as **Classful Networking**. It has several problems:
+
+- **Wasted IP Addresses**: कुछ organizations को कम IP Addresses चाइये होते थे और उस टाइम पर सिर्फ class-based ip addressing technique उसे होती थी तो ऐसे मैं high class को उसे करके ip addresses assign होते थे जिससे ip addresses waste ho jate the होते थे. Suppose a small business allocated a Class B network with 65,000 addresses might only need 500, resulting in a huge waste of addresses.
+
+- **Growing Routing Tables**: The increasing number of networks meant that routers had to maintain very large routing tables, slowing down the internet.
