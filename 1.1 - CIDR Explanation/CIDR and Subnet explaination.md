@@ -73,3 +73,36 @@ Suppose एक कंपनी का नेटवर्क है उस कं
 ```
 
 **Two types of subnetting :-**
+
+- **1 - Private Subnet**: The subnet which does not have access to Internet. Resources launched in the private subnet do not have public ip address.
+
+- **2 - Public Subnet**: The subnet which has access to internet. It allows resources in the subnet to access the public internet.
+
+<br>
+<br>
+
+### CIDR (Classless Inter-Domain Rounting)
+
+It is a technique to create a subnet inside a network.
+
+```
+                     OR
+```
+
+CIDR is a way of explaining how many IP Addresses are available in a particular subnet.
+
+```
+                     OR
+```
+
+It is a technique used for allocating IP Addresses more efficiently.
+
+<br>
+
+**CIDR Notation**
+
+CIDR notation uses format: _IP_Address/Prefix_length_.
+
+e.g.,  192.168.1.0/24
+
+<img src-"https://github.com/user-attachments/assets/c9f38301-027f-4779-91ea-1a361d789387" width="400" height="180">
