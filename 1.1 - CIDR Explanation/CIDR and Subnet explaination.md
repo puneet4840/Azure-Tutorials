@@ -170,4 +170,4 @@ Subnet Mask tells which is the Network portion and which is the Host portion in 
 
 - n यहाँ एक mask होता है और बताता है की IP Address के अंदर कितने 1 हैं.
 
-<img src="https://github.com/user-attachments/assets/77e79e62-0e92-4d0c-9078-26b46d4eb27e" width="600" heigth="400">
+<img src="https://github.com/user-attachments/assets/77e79e62-0e92-4d0c-9078-26b46d4eb27e" width="500" heigth="300">
