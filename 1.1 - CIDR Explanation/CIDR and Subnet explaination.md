@@ -190,4 +190,4 @@ Subnet Mask tells which is the Network portion and which is the Host portion in 
 
 **How to calculate total subnets in a network**
 
-<img scr="https://github.com/user-attachments/assets/5a2c1f97-8b0b-4577-9f42-b3c9330734ee" width="250" heigth="120">
+<img src="https://github.com/user-attachments/assets/5a2c1f97-8b0b-4577-9f42-b3c9330734ee" width="250" heigth="120">
