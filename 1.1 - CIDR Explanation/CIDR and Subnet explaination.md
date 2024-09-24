@@ -105,4 +105,4 @@ CIDR notation uses format: _IP_Address/Prefix_length_.
 
 e.g.,  192.168.1.0/24
 
-<img src-"https://github.com/user-attachments/assets/c9f38301-027f-4779-91ea-1a361d789387" width="400" height="180">
+<img src="https://github.com/user-attachments/assets/c9f38301-027f-4779-91ea-1a361d789387" width="400" height="180">
