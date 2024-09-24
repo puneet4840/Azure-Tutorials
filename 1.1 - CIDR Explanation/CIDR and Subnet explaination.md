@@ -171,3 +171,13 @@ Subnet Mask tells which is the Network portion and which is the Host portion in 
 - n यहाँ एक mask होता है और बताता है की IP Address के अंदर कितने 1 हैं.
 
 <img src="https://github.com/user-attachments/assets/77e79e62-0e92-4d0c-9078-26b46d4eb27e" width="500" heigth="300">
+
+<br>
+<br>
+
+<img src="https://github.com/user-attachments/assets/7d856a5c-8e08-49b9-bcfe-e0ac032d8bba" width="500" heigth="300">
+
+<br>
+<br>
+
+<img sr="https://github.com/user-attachments/assets/9daa798d-af14-44ab-bb62-705712813682" width="500" heigth="300">
