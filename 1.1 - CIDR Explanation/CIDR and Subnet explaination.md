@@ -152,8 +152,7 @@ Network ID of ip address identifies the network that device belongs to. Devices 
 
 Host ID of ip address identifies a particular device on the network.
 
-![image]()
-<img src="https://github.com/user-attachments/assets/d8b48702-7ffc-43cc-9a0f-135ead4e2e30" width="350" height="150">
+<img src="https://github.com/user-attachments/assets/d8b48702-7ffc-43cc-9a0f-135ead4e2e30" width="330" height="120">
 
 - **Subnet Mask**
 
