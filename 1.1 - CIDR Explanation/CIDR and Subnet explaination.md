@@ -132,3 +132,29 @@ This class-based system know as **Classful Networking**. It has several problems
 - **Wasted IP Addresses**: कुछ organizations को कम IP Addresses चाइये होते थे और उस टाइम पर सिर्फ class-based ip addressing technique उसे होती थी तो ऐसे मैं high class को उसे करके ip addresses assign होते थे जिससे ip addresses waste ho jate the होते थे. Suppose a small business allocated a Class B network with 65,000 addresses might only need 500, resulting in a huge waste of addresses.
 
 - **Growing Routing Tables**: The increasing number of networks meant that routers had to maintain very large routing tables, slowing down the internet.
+
+CIDR was introduced in 1993 with RFC 1519 to address the limitations of the classful system. It allowed the creation of networks of varying sizes by using variable-length subnet masking (VLSM). CIDR allows network sizes to be customized to fit the specific needs of a network.
+
+<br>
+<br>
+
+**Components of IP Address**
+
+Each IP Address consists of two main parts which is **Netwrok ID** and **Host ID** or we can say that network part or host part.
+
+These components help in defining the network structure and routing data efficiently.
+
+- **Network ID (Block ID)**
+
+Network ID of ip address identifies the network that device belongs to. Devices that are on the same network will have the same network portion in their IP addresses.
+
+- **Host ID**
+
+Host ID of ip address identifies a particular device on the network.
+
+![image]()
+<img src="https://github.com/user-attachments/assets/d8b48702-7ffc-43cc-9a0f-135ead4e2e30" width="350" height="150">
+
+- **Subnet Mask**
+
+Subnet Mask tells which is the Network portion and which is the Host portion in an ip address.
