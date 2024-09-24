@@ -167,3 +167,7 @@ Subnet Mask tells which is the Network portion and which is the Host portion in 
 **CIDR Natation**
 
 <img src="https://github.com/user-attachments/assets/fc8a7bdb-422c-4651-9e55-4eddd05940df" width="600" heigth="400">
+
+- n यहाँ एक mask होता है और बताता है की IP Address के अंदर कितने 1 हैं.
+
+<img src="https://github.com/user-attachments/assets/77e79e62-0e92-4d0c-9078-26b46d4eb27e" width="800" heigth="600">
