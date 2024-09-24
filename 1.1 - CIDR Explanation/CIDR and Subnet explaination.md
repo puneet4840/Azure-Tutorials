@@ -188,6 +188,6 @@ Subnet Mask tells which is the Network portion and which is the Host portion in 
 <br>
 <br>
 
-**How to calculate total subnets in a network**
+**CIDR table**
 
-<img src="https://github.com/user-attachments/assets/5a2c1f97-8b0b-4577-9f42-b3c9330734ee" width="450" heigth="320">
+<img src="https://github.com/user-attachments/assets/b5c590da-1463-4054-8203-d611591f4741" width="600" heigth="400">
