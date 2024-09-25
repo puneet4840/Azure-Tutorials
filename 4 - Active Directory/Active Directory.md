@@ -22,9 +22,6 @@ username create करते थे और password create करके उस�
 
 
 
-
-
-
 ### What is Active Directory?
 
 Active Directory is the directory service or Database that stores user information and manages a user's permission to access to the resources. It is designed by Microsoft specially for Windows domain computers.
