@@ -9,3 +9,5 @@ The main function of Active Directory is **Authentication**. It authenticate use
 ```user अपना username और password डालता है और laptop के अंदर login कर लेता है```
 
  **Note**:- ```लेकिन इसके साथ बोहोत सारे challenges थे:-```
+
+- ```अगर आपकी company छोटी है बस 10 या 15 employees हैं तो आप हर किसी employee के username और password create करके user को दे सकते हो| लेकिन अगर आपकी company बड़ी है और 1000 या 5000 employee काम करते हैं तो आप हर employee के लिए username और password create करके नहीं दे सकते इसके लिए आपको एक अलग team बिठानी पड़ेगी```
