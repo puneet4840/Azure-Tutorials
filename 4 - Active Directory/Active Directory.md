@@ -8,4 +8,4 @@ The main function of Active Directory is **Authentication**. It authenticate use
 
 ```user अपना username और password डालता है और laptop के अंदर login कर लेता है```
 
- Note:- ```**लेकिन इसके साथ बोहोत सारे challenges थे:-**```
+ **Note**:- ```लेकिन इसके साथ बोहोत सारे challenges थे:-```
