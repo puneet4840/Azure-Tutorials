@@ -29,3 +29,11 @@ Suppose हमने एक server पर Active Directory install कर दी
 
 अगर आपकी कंपनी मैं कोई नया employee आया है तो उसके लिए आप एक laptop लेंगे और laptop को domain मैं join कराएंगे और साथ ही साथ उस employee का जो user account है उसको active directory में जाके create कर देंगे. 
 - जैसे जब मैंने Nagarro join की थो तो Nagarro ने मुझे एक laptop अपने Nagarro के domain मैं join करके दिया था. मतलब उस laptop में मैं नगररो के username aur password से hi login कर सकता हूँ बस. 
+
+**How does Active Directory works?**
+
+When you want to login to your system. You type username and password then this information goes to active directory, if your credentials is correct you will be logged in successfully other login failed.
+
+**Note**:-
+
+This is I told you about on-premise active directory. Then azure comes up with a new solution with **Azure Active Directory**.
