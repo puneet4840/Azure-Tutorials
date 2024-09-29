@@ -119,6 +119,8 @@ Architecture of Azure AD revolved around three main components: **Directory**, *
 
 - **Tenant**: A tenant is the instance of your active directory. A tenant is like the boundary for your directory. Within the tenant you control users, groups, roles and  applications.
 
+  A tenant is simply an instance which represents your organization. You have multiple oragnization then you can create multiple tenants under same account. If you have two organizations. So, you can create two tenants under same account which will seperate the workloads of your both organization without creating a new account.
+
   e.g.,
 
   ```Tenant एक तरह से boundary होती है directory की मतलब आपने एक account create किया जिससे एक directory create होगयी फिर साथ ही एक tenant भी create हो जायेगा जो आपकी organization को represent करेगा.```
