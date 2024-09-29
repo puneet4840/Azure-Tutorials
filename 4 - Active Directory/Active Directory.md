@@ -134,3 +134,69 @@ Architecture of Azure AD revolved around three main components: **Directory**, *
      - Reserved Instance.
      - Enterprise Agreement.
 
+- **Resource Group**: A Resource Group is the logical isolation of the reosurces.
+
+- **Resource**: A resource is the service which we use from azure.
+
+<br>
+<br>
+
+### Role Assignment and Access Control
+
+Azure Active Directory uses a flexible way to manage user access to resources. It uses Azure AD Roles and Role Based Access Control (**RBAC**) to manage user access.
+
+There are two types of roles in Azure Active Directory:
+- Azure AD Roles (Directory Roles).
+- Azure RBAC Roles (Resource Roles).
+
+<br>
+
+**1 - Azure AD Roles (Directory Roles)**
+
+These roles control the access to the identity and directory management features of Azure Active Directory (for users, groups, devices, apps). These roles are applied at the directory(tenant) level.
+
+```Azure AD roles directory level पर access provide करने के लिए use किये जाते हैं. Suppose किसी user को directory level पर access देनी है तो हम AD roles से ही access दे सकते हैं. मतलब ये roles tenant level पर access देने के लिए होते हैं.```
+
+Azure AD Roles are:
+
+- **Global Administrator**: This roles has full access to manage Azure AD service, users, and groups including all administrative features. Can assign roles to other users. You can assign this role if a user needs full control over azure AD.
+
+  e.g., A company's IT Admin who manages Users, Groups and Application access.
+
+<br>
+
+- **User Administrator**: This role can create and manages all aspects of users and groups, inclusing resetting passwords and assigning licesnces. You can assign this roles to users who will manage user accounts and group memberships but don't need full administrative rights.
+
+  e.g., An HR admin who needs to add or remove employees and manage groups.
+
+<br>
+
+- **Application Administrator**: This role can manage application registrations, app proxy settings, and enterprise apps. Cannot manage azure AD itself.
+
+  e.g., A developer managing API registrations for internal applications.
+
+<br>
+<br>
+<br>
+
+**2 - Azure RBAC Roles (Resource Roles)**
+
+RBAC (Role Based Access Control) is the method to assign roles (permissions) to users, groups or application for access azure resources (such as VMs, Storage, Databases). These roles are applies at different level such as **Subscription**, **Resources Group** and **Resource**.
+
+**Key concepts of RBAC**
+
+- **Roles**: It is the collection of permission that a user can perform (e.g., Read, Write, Delete).
+  
+    - There are three types of roles in RBAC:
+      
+        - **Owner**: Full control over everything (e.g., create, delete, manage).
+          
+        - **Contributor**: Can create and manage resources not delete also cannot assign roles.
+          
+        - **Reader**: Can only view resources but cannot make any changes.
+          
+- **Scope**: It is the area where the role applies (e.g., Subscription, Resource Group, Resources).
+- **Principals**: Users, Groups or Applications that receive the roles.
+
+<br>
+<br>
