@@ -143,7 +143,7 @@ Architecture of Azure AD revolved around three main components: **Directory**, *
 
 ### Role Assignment and Access Control
 
-Azure Active Directory uses a flexible way to manage user access to resources. It uses Azure _AD Roles_ and _Role Based Access Control_ (**RBAC**) to manage user access.
+Azure Active Directory uses a flexible way to manage user access to resources. It uses **Azure AD Roles** and **Role Based Access Control** (**RBAC**) to manage user access.
 
 There are two types of roles in Azure Active Directory:
 - Azure AD Roles (Directory Roles).
