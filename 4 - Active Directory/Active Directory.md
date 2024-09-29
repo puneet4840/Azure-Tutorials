@@ -128,7 +128,7 @@ Architecture of Azure AD revolved around three main components: **Directory**, *
 
 - **Subscription**: A subscription the billing and management entity in azure. It is the layer where you manage Azure resources, usage, and billing. Multiple subscription can exists within a single tenant. The organization is billed based on resource usage under the subscription.
 
- - Types of Subscription:
+  - Types of Subscription:
      - Free Trial.
      - Pay-As-You-Go.
      - Reserved Instance.
