@@ -104,3 +104,33 @@ Architecture of Azure AD revolved around three main components: **Directory**, *
 **Basic Diagram**
 
 <img src="https://github.com/user-attachments/assets/9d37748d-74b0-4de7-9266-b00fff40e81f" width="350" height="450">
+
+<br>
+<br>
+<br>
+
+**Explaination of AD Architecture components**
+
+- **Directory**: Azure Active Directory is a container where all Users, Groups, Devices, Applications and Service Principal resides. Tenant is also created with it by default, this tenant is also called directory.
+
+  e.g.,
+  
+  ```जब हम अपने Gmail से Azure पर एक account create करते हैं तो वहाँ एक default directory create हो जाती है. इसके साथ एक tenant भी create हो जाता है.```
+
+- **Tenant**: A tenant is the instance of your active directory. A tenant is like the boundary for your directory. Within the tenant you control users, groups, roles and  applications.
+
+  e.g.,
+
+  ```Tenant एक तरह से boundary होती है directory की मतलब आपने एक account create किया जिससे एक directory create होगयी फिर साथ ही एक tenant भी create हो जायेगा जो आपकी organization को represent करेगा.```
+
+
+- **Management Group**: A management group is a container to organize and manage the multiple subscription. You can create and apply policies at the management group level for managing multiple subscription.
+
+- **Subscription**: A subscription the billing and management entity in azure. It is the layer where you manage Azure resources, usage, and billing. Multiple subscription can exists within a single tenant. The organization is billed based on resource usage under the subscription.
+
+ - Types of Subscription:
+     - Free Trial.
+     - Pay-As-You-Go.
+     - Reserved Instance.
+     - Enterprise Agreement.
+
