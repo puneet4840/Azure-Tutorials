@@ -85,3 +85,14 @@ Let's introduce Azure AD to simplify the situation.
 - **Easier Access Control**: The administrator can setup groups (e.g., Sale, IT, Marketing) in Azure AD and assign the appropriate permission to each group.
 
 Azure Active Directory is not limited to just Microsoft services. It can be used to manage and access any services.
+
+<br>
+<br>
+
+### Azure Active Directory Hierarchy Architecture
+
+Architecture of Azure AD revolved around three main components: **Directory**, **Tenant** and **Subscription**.
+
+**Diagram**
+
+<img src="https://github.com/user-attachments/assets/18e6228e-5f70-4c44-a209-79ed705d8c84" width="350" height="600">
