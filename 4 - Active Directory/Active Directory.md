@@ -96,3 +96,9 @@ Architecture of Azure AD revolved around three main components: **Directory**, *
 **Diagram**
 
 <img src="https://github.com/user-attachments/assets/18e6228e-5f70-4c44-a209-79ed705d8c84" width="350" height="450">
+
+<br>
+
+**Basic Diagram**
+
+<img src="https://github.com/user-attachments/assets/9d37748d-74b0-4de7-9266-b00fff40e81f" width="350" height="450">
