@@ -53,3 +53,11 @@ MFA typically works when logging into an Azure AD-secured application
 **4 - Access Granted**:
 
   - The user is now logged into the application securely.
+
+<br>
+<br>
+
+### Why MFA is Important?
+
+- **mproves Security**: Even if an attacker knows your password, they won’t be able to log in without the second factor (phone, app, etc.).
+- **Reduces Risks**: Increases the difficulty for attackers to breach accounts using only stolen or weak credentials.
