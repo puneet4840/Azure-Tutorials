@@ -7,12 +7,12 @@ OR
 ```
 
 Multi Factor authentication is the method to secure the accounts from unauthorized access.
-
 ```
 OR
 ```
-
 Multi Factor authentication adds an extra layer of security when user log into their accounts. Instead of relying on single factor like password.
+
+<br>
 
 ```Multi Factor authentication login करने का एक ऐसा method है जिसके through हम unauthorized access से अपने accounts को secure रखते हैं.```
 
