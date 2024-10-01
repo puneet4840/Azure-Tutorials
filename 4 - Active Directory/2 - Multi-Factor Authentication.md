@@ -31,28 +31,28 @@ e.g., **With Multi Factor Authentication**
 
 MFA typically works when logging into an Azure AD-secured application
 
-- **1 - User Logs In**:
+**1 - User Logs In**:
   
-    - A user opens an application or service secured by Azure AD, such as Outlook, Teams, or an internal company portal.
+  - A user opens an application or service secured by Azure AD, such as Outlook, Teams, or an internal company portal.
  
     - The user enters their username and password (the first factor).
 
-- **2 - Verification Prompt**:
+**2 - Verification Prompt**:
 
-    - Azure AD recognizes that MFA is required for this user and sends a second authentication request.
+  - Azure AD recognizes that MFA is required for this user and sends a second authentication request.
  
-    - The user receives a prompt for the second factor. This could be:
+  - The user receives a prompt for the second factor. This could be:
         - A **text message** with a code sent to the user’s mobile phone.
         - A notification in the **Microsoft Authenticator** app.
         - A call to a **mobile** or **landline phone**.
         - A request for a **biometric scan** (fingerprint, facial recognition).
 
-- **3 - Second Factor Confirmed**:
+**3 - Second Factor Confirmed**:
 
-    - The user confirms their identity by entering the verification code, approving the app notification, or using the biometric scan.
+  - The user confirms their identity by entering the verification code, approving the app notification, or using the biometric scan.
  
-    - Once the second factor is verified, the user is granted access to the application.
+  - Once the second factor is verified, the user is granted access to the application.
 
-- **4 - Access Granted**:
+**4 - Access Granted**:
 
-    - The user is now logged into the application securely.
+  - The user is now logged into the application securely.
