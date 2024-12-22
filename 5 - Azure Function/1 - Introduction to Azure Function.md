@@ -14,6 +14,15 @@ Serverless computing is an application development model where you can build and
 
 You need to pay only for the exact amount of resources used by your application.
 
+```Serverless एक cloud computing model है जिसमे developer small code लिखता है और code को run करने के लिए cloud provider infrastructure manage करता है|```
+
 <br>
 
 In **Azure**, **serverless computing** is a cloud computing model where Microsoft Azure handles the infrastructure, scaling, and management, allowing developers to focus solely on writing and deploying code.
+
+
+<br>
+
+## Key Characteristics of Serverless
+
+- ### No Server Management:
