@@ -1,4 +1,4 @@
-# What is Servesless?
+# What is Serverless?
 
 ServerLess is the cloud computing execution model where the cloud provider manages the infrastructure and automatically allocate resources to run your code.
 
@@ -184,3 +184,21 @@ In Azure, serverless computing is a cloud computing model where Microsoft Azure 
     - Quick deployment of containerized applications.
 
   - **Example**: Running a one-time batch job to process data.
+
+
+## How Does Serverless Work in Azure?
+
+- **Write Your Code or Workflow**:
+  - Write code for Azure Functions or define workflows in Logic Apps.
+  - Select the event or trigger that starts your code or workflow.
+
+- **Deploy to Azure**:
+  - Deploy your code or workflow to Azure using the Azure Portal, Azure CLI, or DevOps tools.
+
+- **Azure Manages Infrastructure**:
+  - Azure automatically provisions the necessary compute resources to run your code.
+  - It scales up or down based on the demand for your application.
+
+- **Execute on Demand**:
+  - Your application runs only when triggered by an event.
+  - After execution, Azure releases the resources, so you’re not paying for idle time.
