@@ -115,3 +115,8 @@ Here’s how Azure Functions operate:
 - **Processing**: The function performs its task (e.g., processes data, sends an email).
 - **Output Binding**: Sends the result to a target (e.g., database, storage, queue).
 - **Scaling**: Azure scales the function dynamically if there’s high traffic.
+
+<br>
+<br>
+
+## Exmaple: LAB - 
