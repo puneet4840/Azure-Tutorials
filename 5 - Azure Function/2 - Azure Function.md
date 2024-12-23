@@ -75,9 +75,10 @@ There are three types of pricing models in Function app:
   - It is default hosting plan.
   - You Pay only when your function is running.
   - Scales automatically, even during periods of high load. Instances of the functions host are added or removed based on the number of incoming events.
-  - In the consumption plan, Virtual Machine allocated for the Function App has maximum 100 AC and 1.5 GB of RAM.
-  - Azure can add maximum of 200 function app instances in the consumption plan and every instance has 100 ACU and 1.5 GB of RAM.
+  - In the consumption plan, Virtual Machine allocated for the Function App has maximum 100 CPU and 1.5 GB of RAM.
+  - Azure can add maximum of 200 function app instances in the consumption plan and every instance has 100 CPU and 1.5 GB of RAM.
   - When the load increases on function app, azure automatically adds an vm instance on which you same function app run.
+  - Function app in the consumption might be slow due to cold start.
 
 - **Premium Plan**:
 
@@ -86,5 +87,18 @@ There are three types of pricing models in Function app:
   - Provides more CPU and Memory options than what is provided in the consumption plan.
   - You can run your code longer than maximum execution time is allowed on the consumption plan.
   - Allows you to connect your function app to your Azure Virtual Network for secure access to resources.
-  - In the Premium plan, Virtual Machine allocated for the Function App has 210-840 ACU and 3.5 GB - 14 GB of RAM.
+  - In the Premium plan, Virtual Machine allocated for the Function App has 210-840 CPU and 3.5 GB - 14 GB of RAM.
   - Azure can add maximum of 100 function app instances in the Premium plan.
+
+- **App Service Plan**:
+
+  - Runs your functions on dedicated virtual machines, giving you full control over the underlying infrastructure.
+  - You're charged for the VM instances you allocate, regardless of function executions.
+  - Provides access to features like custom domains, SSL certificates, and scaling options available in Azure App Service.
+  - You have existing and underutilized virtual machines that are already running other App Service instances.
+
+<br>
+
+## Function App Execution Time
+
+<img src="https://drive.google.com/uc?export=view&id=1CnSpbscQipz-84pkVXubmYcYe21_1qb8">
