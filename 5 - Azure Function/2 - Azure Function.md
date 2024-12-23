@@ -102,3 +102,16 @@ There are three types of pricing models in Function app:
 ## Function App Execution Time
 
 <img src="https://drive.google.com/uc?export=view&id=1CnSpbscQipz-84pkVXubmYcYe21_1qb8" width="600" height="400">
+
+<br>
+
+## Function App End-to-End Workflow
+
+Here’s how Azure Functions operate:
+
+- **Trigger**: An event (e.g., HTTP request, timer, message) invokes the function.
+- **Execution**: The function runs your code.
+- **Input Binding**: The function fetches input data if configured.
+- **Processing**: The function performs its task (e.g., processes data, sends an email).
+- **Output Binding**: Sends the result to a target (e.g., database, storage, queue).
+- **Scaling**: Azure scales the function dynamically if there’s high traffic.
