@@ -16,3 +16,15 @@ Azure Function is the **cloud-based service** by microsoft that allows you to ru
 ## Function App Architecture
 
 <img src="https://drive.google.com/uc?export=view&id=14_Q67adSir4Q7wPqIeDHNCB6o5ojfguY" width="500" height="410">
+
+In the above architecture you can see that when we create a Function App on azure the following steps has been followed by azure:
+- Select the Azure Data Center based on your region choice.
+- It selects a physical server inside the data center.
+- Create a Virtual Machine in the physical server based on your choice between Linux or Windows and assign it for function app.
+- Create a Function App inside the VM, that is the Serverless. We only able to see our function but azure has create that Function app inside the virtual machine.
+- If we want to create multiple same os related function apps so we can create it.
+
+Here, Serverless means there is azure managed server on which you function app is create by azure. Azure scales or de-scales it based on the load on your function app.
+
+This is the concept of serverless.
+
