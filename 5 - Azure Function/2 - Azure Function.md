@@ -101,4 +101,4 @@ There are three types of pricing models in Function app:
 
 ## Function App Execution Time
 
-<img src="https://drive.google.com/uc?export=view&id=1CnSpbscQipz-84pkVXubmYcYe21_1qb8">
+<img src="https://drive.google.com/uc?export=view&id=1CnSpbscQipz-84pkVXubmYcYe21_1qb8" width="500" height="600">
