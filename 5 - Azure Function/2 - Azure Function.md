@@ -15,4 +15,4 @@ Azure Function is the **cloud-based service** by microsoft that allows you to ru
 
 ## Function App Architecture
 
-<img src="https://drive.google.com/uc?export=view&id=14_Q67adSir4Q7wPqIeDHNCB6o5ojfguY" width="500" height="450">
+<img src="https://drive.google.com/uc?export=view&id=14_Q67adSir4Q7wPqIeDHNCB6o5ojfguY" width="500" height="410">
