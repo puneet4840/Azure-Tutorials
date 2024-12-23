@@ -12,3 +12,4 @@ Azure Function is the **cloud-based service** by microsoft that allows you to ru
 - **Event-Driven**: Functions execute in response to triggers like HTTP requests, timer schedules, or messages in a queue.
 - **Scalable**: Automatically scales based on demand.
 - **Cost-Effective**: You pay only for the time your function runs.
+
