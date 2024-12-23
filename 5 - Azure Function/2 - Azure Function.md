@@ -7,9 +7,12 @@ Azure Function is the **cloud-based service** by microsoft that allows you to ru
 - The code is triggered by external events or schedules.
 - It’s ideal for short-running, event-driven tasks like data processing, event handling, or microservices.
 
-### Why use Azure Functions?
+## Why use Azure Functions?
 
 - **Event-Driven**: Functions execute in response to triggers like HTTP requests, timer schedules, or messages in a queue.
 - **Scalable**: Automatically scales based on demand.
 - **Cost-Effective**: You pay only for the time your function runs.
 
+## Function App Architecture
+
+<img src="https://drive.google.com/uc?export=view&id=14_Q67adSir4Q7wPqIeDHNCB6o5ojfguY">
