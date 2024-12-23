@@ -28,3 +28,34 @@ Here, Serverless means there is azure managed server on which you function app i
 
 This is the concept of serverless.
 
+## Components of Azure Function
+
+- **Function App**:
+
+  The Function App is a container that holds one or more Azure Functions. All functions in a Function App share:
+  - Runtime and configurations.
+  - Deployment settings.
+
+- **Trigger**:
+
+  Trigger defines how the function is invoked. A trigger is what causes your function to execute. Types include:
+
+  - **HTTP Trigger**: A Function executes when an HTTP request is received.
+  - **Timer Trigger**: Function runs based on a scheduled time in cron syntax.
+  - **Blob Trigger**: Runs when a new file is uploaded to Azure Blob Storage.
+  - **Queue Trigger**: Executes when a message is added to a queue.
+ 
+- **Input Binding**:
+
+  Input bindings provide data to the function when it executes. For example:
+  - Reading data from a SQL database or Azure Storage Blob.
+
+- **Output Binding**:
+
+  Output bindings send data from the function to an external service. For example:
+  - Writing messages to a queue or saving files to Blob Storage.
+
+- **Runtime**:
+
+  The runtime is the execution environment for Azure Functions, available in:
+  - .Net, Python, Java, PowerShell and more.
