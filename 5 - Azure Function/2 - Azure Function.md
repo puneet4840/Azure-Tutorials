@@ -13,6 +13,8 @@ Azure Function is the **cloud-based service** by microsoft that allows you to ru
 - **Scalable**: Automatically scales based on demand.
 - **Cost-Effective**: You pay only for the time your function runs.
 
+<br>
+
 ## Function App Architecture
 
 <img src="https://drive.google.com/uc?export=view&id=14_Q67adSir4Q7wPqIeDHNCB6o5ojfguY" width="500" height="410">
@@ -27,6 +29,8 @@ In the above architecture you can see that when we create a Function App on azur
 Here, Serverless means there is azure managed server on which you function app is create by azure. Azure scales or de-scales it based on the load on your function app.
 
 This is the concept of serverless.
+
+<br>
 
 ## Components of Azure Function
 
@@ -59,3 +63,28 @@ This is the concept of serverless.
 
   The runtime is the execution environment for Azure Functions, available in:
   - .Net, Python, Java, PowerShell and more.
+
+<br>
+
+## Azure Function Pricing Models
+
+There are three types of pricing models in Function app:
+
+- **Consumtion Plan**:
+
+  - It is default hosting plan.
+  - You Pay only when your function is running.
+  - Scales automatically, even during periods of high load. Instances of the functions host are added or removed based on the number of incoming events.
+  - In the consumption plan, Virtual Machine allocated for the Function App has maximum 100 AC and 1.5 GB of RAM.
+  - Azure can add maximum of 200 function app instances in the consumption plan and every instance has 100 ACU and 1.5 GB of RAM.
+  - When the load increases on function app, azure automatically adds an vm instance on which you same function app run.
+
+- **Premium Plan**:
+
+  - Provides pre-warmed instances that are always available, minimizing cold starts and latency.
+  - Function runs on more powerful instances with dedicated resources (vCPUs and memory).
+  - Provides more CPU and Memory options than what is provided in the consumption plan.
+  - You can run your code longer than maximum execution time is allowed on the consumption plan.
+  - Allows you to connect your function app to your Azure Virtual Network for secure access to resources.
+  - In the Premium plan, Virtual Machine allocated for the Function App has 210-840 ACU and 3.5 GB - 14 GB of RAM.
+  - Azure can add maximum of 100 function app instances in the Premium plan.
