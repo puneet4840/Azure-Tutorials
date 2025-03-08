@@ -111,7 +111,7 @@ This is the concept of API here.
 
 **Regions and Avaiability Zones**
 
-- **Availability Zones**: We can consider availability zones as a data center. You can there are mentions like zone 1, zone 2, zone 3. These zones are the data center. It means azure has three data centers (Zone 1, Zone 2, Zone 3) in a single region.
+- **Availability Zones**: We can consider availability zones as a data center. You can there are mentions like zone 1, zone 2, zone 3. These zones are the data center. It means azure has three data centers (Zone 1, Zone 2, Zone 3) in a single region. It means to distribute your virtual machines across multiple data centers.
 
 - **Regions**: Regions are like geographical identification.  Azure have multiple data center around the world so to identify the particular data center in the world, we have regions to identify which data center in which area in the world.
 
@@ -124,6 +124,25 @@ This is the concept of API here.
 - **Disaster Recovery**: It is a technique or mechanism where we have a plan or action if something goes worng.
   To deal with it in azure there is a backup of service or Creating copy of resource in another region.
 
+- **Availability Set**: To distribute your virtual machines within a single data center(across fault domains and update domains). When you place VMs in an Availability Set, Azure automatically distributes them across both Fault Domains and Update Domains.
+
+  - **Fault Domain**: A Fault Domain represents a group of VMs that share the same physical hardware (racks, power supply, network, etc.).
+  - **Update Domain**: An Update Domain is a group of VMs that are updated (e.g., for host OS updates or hardware maintenance) at the same time.
+ 
+  **How Fault Domains and Update Domains Work Together**:
+  - When you place VMs in an Availability Set, Azure automatically distributes them across both Fault Domains and Update Domains.
+
+    Example:
+    - Suppose you have 6 VMs in an Availability Set.
+    - Azure distributes them across 3 Fault Domains and 5 Update Domains:
+      - Fault Domain 1: VM1 (Update Domain 1), VM4 (Update Domain 4).
+      - Fault Domain 2: VM2 (Update Domain 2), VM5 (Update Domain 5).
+      - Fault Domain 3: VM3 (Update Domain 3), VM6 (Update Domain 1).
+    - If Fault Domain 1 fails, only VM1 and VM4 are affected.
+    - During maintenance, Azure updates one Update Domain at a time, ensuring that at least 5 VMs remain available.
+
+<br>
+        
 ### Cloud Computing Models
 
 Three types of Models - 
