@@ -12,6 +12,14 @@ Cloud is the platform which provides on demand delivery of computing resources s
 
 ### Why do we need cloud?
 
+There are multiple reasons to choose cloud:
+
+- **TO save cost**:
+  - If you want to run a website, instead of buying and maintaining your own server (which can be expensive and require dedicated IT staff), you can host your website on a cloud service and pay only for what you use.
+ 
+- **For Scalability and Flexibility**:
+  - Imagine you run an online store that suddenly becomes very popular during a holiday sale. With traditional servers, you’d need to buy extra hardware to handle the increased traffic. With cloud computing, you can quickly scale up your resources (more servers, more storage) to handle the surge and scale them down when the traffic drops.
+
 We know that if we have an application we need a server to expose that application to outside world.
 
 - **What is Server?**
