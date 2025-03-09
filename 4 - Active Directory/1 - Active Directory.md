@@ -1,5 +1,9 @@
 # Azure Active Directory
 
+A directory is the list of user, groups in a computer.
+
+An Active Directory is the database which stores the details of Users, computers, printers, groups in your computer. For e.g., which user belongs to which group. It is developed by microsoft for Windows Domain Network.
+
 ### What if there is not Active Directory?
 
 The main function of Active Directory is **Authentication**. It authenticate username and password.
