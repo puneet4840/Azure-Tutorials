@@ -53,7 +53,7 @@ Azure Active Directory is the cloud-based authentication and authorization syste
 
 Azure Active Directory is the cloud-based directory and identity and access management service.
 
-The key function of Azure Active Directory is **Authentication** (verifying who are you) and **Authorization** (determining what you are allowed to access).
+The key function of Azure Active Directory is **Authentication** (verifying who are you) and **Authorization** (determining what you are allowed to access) for cloud services.
 
 It is now known as **Entra ID**
 
