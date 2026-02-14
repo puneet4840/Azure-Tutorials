@@ -9,6 +9,8 @@ Ye ek Azure ki service hai jo incoming network traffic ko multiple backend serve
 
 ### KYU ZAROORI HOTA HAI Azure Load Balancer?
 
+Traffic load ko evenly distribute karne ke liye hota hai Load Balancer.
+
 Socho agar:
 - Tumhari ek website hai jo sirf 1 VM par hi chal rahi hai.
 - Aur ek din tumhari website par traffic jyada aa gya, to jyada traffic aane ki wajah se VM load ko handle nhi kar payega aur server crash ho jayega, to apki aapki application down ho jayegi.
