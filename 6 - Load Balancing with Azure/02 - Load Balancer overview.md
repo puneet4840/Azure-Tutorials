@@ -261,3 +261,46 @@ Ek Layer 4 Load Balancer ke andar typically ye components hote hain:
     - Same connection same server pe jaye.
     - Packet mix-up na ho.
    
+<br>
+<br>
+
+### Ek Real World Flow Example
+
+Assume karo:
+
+Load Balancer IP → 20.20.20.20
+
+Backend servers:
+- Server A → 10.0.0.10.
+- Server B → 10.0.0.11.
+
+Client browser se:
+```
+https://myapp.com
+```
+
+Behind the scenes:
+- DNS resolve → 20.20.20.20
+- TCP Connection:
+  - Step 1 – SYN ```Client → “Hello server, connection banana hai.”```.
+  - Step 2 – SYN-ACK ```Server → “OK, ready hoon.”```.
+  - Step 3 – ACK ```Client → “Confirmed.”```
+- Isko bolte hain: Three-Way Handshake.
+- Matlab uper three way handshake User aur LB ke beech mein ho rha hai.
+- LB receives SYN (iska matlab hai ki LB ke saath user ka three way handshake ho gya hai).
+- LB ka logic:
+  - TCP? ✅.
+  - Port 443? ✅.
+  - Public IP Matching.
+- Algorithm run:
+- Example Least Connections:
+  - Server A → 120 connections.
+  - Server B → 45 connections.
+- LB chooses → Server B.
+
+Ab:
+- Entire TCP session → Server B.
+- Multiple packets → Same server.
+- Matlab request Server B ko forward kar di hai Load Balancer ne.
+
+
