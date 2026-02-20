@@ -303,4 +303,8 @@ Ab:
 - Multiple packets → Same server.
 - Matlab request Server B ko forward kar di hai Load Balancer ne.
 
+<br>
+<br>
+<br>
 
+## To ab hum aage dekhenge ki Load Balancer kon kon se rules user karta hai backend pool se vm ko select karne ke liye?
