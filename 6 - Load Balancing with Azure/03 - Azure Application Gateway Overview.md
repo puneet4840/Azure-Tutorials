@@ -356,5 +356,211 @@ Process:
 - User Request: User ne type kiya ```https://www.mycompany.com```.
 - Listener Action: Listener ne dekha ki request Port 443 par aayi hai aur Hostname https://www.google.com/url?sa=E&source=gmail&q=mycompany.com hai.
 - SSL Handshake: Kyunki ye HTTPS listener hai, toh yahi par SSL Termination hoga (certificate check hoga).
+  - Agar HTTPS request hai:
+    - TLS handshake hota hai.
+    - Certificate validate hota hai.
+    - Traffic decrypt hota hai.
+  - Ye backend ko traffic plain http mein bhejta hai.
+  - Isi ko SSL Termination kehte hain.
 - Forwarding: Sab sahi raha, toh Listener ne traffic Routing Rule ko pass kar diya, jisne aage Backend Server ko bhej diya.
+
+<br>
+
+**Step 4: Ab Sabse Important Part – Routing Rules**:
+
+Jab Listener ne request accept kar li aur check kar liya ki port aur protocol sahi hai, tab wo request ko Routing Rule ke haath mein de deta hai. Routing Rule ka kaam hai ye decide karna: "Ye request ab konse backend server pe jayegi?"
+
+Routing Rule ek aisi "Condition" hai jo do cheezon ko aapas mein jodti hai:
+- Source (Listener): Jahan se request aayi.
+- Destination (Backend Pool / HTTP Settings): Jahan request ko bhejna hai.
+
+Bina Routing Rule ke, Listener ko ye nahi pata hoga ki request ko Backend Pool (servers) tak kaise pahunchana hai.
+
+<br>
+
+Routing Rule Kaise Kaam Karta Hai?
+
+Routing Rule do main types ke hote hain, jo define karte hain ki traffic ka "route" kya hoga:
+- Basic Routing Rule:
+  - Ye sabse simple hai. Ismein aap bolte ho: "Jo bhi traffic is Listener par aaye, use seedha is Backend Pool mein bhej do." Ismein koi filter nahi hota.
+  - Example: Agar koi ```www.example.com``` par aaye, toh use ```Web-Server-Pool``` par bhej do.
+ 
+- Path-based Routing Rule (Advanced):
+  - Ye Application Gateway ki asli taqat hai. Ismein aap URL ke "Path" ko dekh kar traffic ko alag-alag raste par bhej sakte ho.
+  - Example:
+    - Agar URL hai ```example.com/images/*``` → Toh traffic jaye Storage Server par.
+    - Agar URL hai ```example.com/videos/*``` → Toh traffic jaye Media Server par.
+    - Baqi sab (Default) → Jaye General Web Server par.
+
+<br>
+
+Routing Rule Ke 3 Main Components:
+
+Jab aap ek Rule banate ho, toh ye 3 cheezein configure karni hoti hain:
+- Listener: Wo listener select karo jisse traffic uthana hai.
+- Backend Target (Pool): Wo servers ka group jahan traffic jayega (VMs, App Services, etc.).
+- HTTP Settings: Ye batata hai ki traffic backend tak kaise jayega.
+  - Kya traffic ko Port 80 pe bhejna hai ya 443 pe?
+  - Kya Cookie-based affinity (session) on karni hai?
+  - Backend server ko check karne ka Request Timeout kitna hoga?
+
+<br>
+ 
+Real-Life Example: Ek Streaming App
+
+Maano aapka ek platform hai "Simply Stream". Aapne Application Gateway par ek Routing Rule banaya hai:
+
+Scenario:
+- Aapke paas do backend pools hain: Static-Pool (for images/CSS) aur Video-Pool (for movies).
+
+Rule Configuration (Path-based):
+- Listener: Jo ```https://simplystream.com``` ko sun raha hai.
+- Path Map:
+  - Agar path ```/static/*``` hai → Target: Static-Pool.
+  - Agar path ```/watch/*``` hai → Target: Video-Pool.
+  - Default Rule: Agar koi sirf home page par hai (```/```), toh use Main-Website-Pool par bhej do.
+
+```
+Backend Pool:
+10.0.1.4 - Static
+10.0.1.5 - Watch
+10.0.1.6 - Main Website
+```
+Application gateway in teeno mein load balancer karega.
+ 
+Example:
+- Jab koi user movie dekhta hai (```simplystream.com/watch/movie123```), toh Routing Rule use turant Video-Pool wale high-capacity servers par bhej deta hai.
+- Isse aapka main website server load se bach jata hai.
+
+Ek aur Example:
+
+Suppose:
+```
+/api/* → API Backend
+/images/* → Image Backend
+/admin/* → Admin Backend
+/* → Default Backend
+```
+
+Application Gateway request ka URL dekhta hai:
+```
+https://www.mycompany.com/api/users
+```
+
+Wo check karega:
+```
+Match: /api/*
+```
+
+Aur request API backend pe bhej dega.
+
+<br>
+
+**Step 5: Health Probes – Backend Healthy Hai Ya Nahi?**
+
+Backend par request bhejne se pehle health probes backend server ki health check karte hain.
+
+Application Gateway continuously check karta hai:
+```
+http://10.0.1.4/health
+```
+
+Agar:
+- 200 OK → Healthy.
+- 500 error → Unhealthy.
+
+Agar VM unhealthy ho jaye: ❌ Usko traffic nahi milega.
+
+Yeh automatic hota hai.
+
+Ab user ki request backend server jaha application chal rha waha pahunch chuki hai.
+
+<br>
+<br>
+
+### Internal Flow Diagram (Logical)
+
+Flow internally kuch aisa hota hai:
+```
+Client
+   ↓
+Public IP
+   ↓
+Listener (HTTPS 443)
+   ↓
+SSL Termination
+   ↓
+Routing Rule
+   ↓
+Path Matching
+   ↓
+Backend Pool Selection
+   ↓
+Health Check Verify
+   ↓
+Backend VM
+```
+
+<br>
+<br>
+
+**Ab WAF Ka Role (Agar tumne WAF enable kiya hai)**
+
+WAF ek security rule hai jo incoming request ko scan karta hai. Ye routing se pehle kaam karta hai.
+
+Standard Firewall (jo port aur IP block karta hai) aur WAF mein bahut farak hota hai. WAF specifically HTTP/HTTPS traffic ko scan karta hai. Ye packet ke andar ka data padhta hai aur dekhta hai ki kahin koi hacker aapki website ko nuksan pahunchane ki koshish toh nahi kar raha.
+
+Azure mein WAF, Application Gateway ke upar ek extra layer ki tarah kaam karta hai. Ye OWASP (Open Web Application Security Project) ke core rules par chalta hai, jo duniya bhar ke top cyber attacks ko pehchante hain.
+
+WAF Kaise Kaam Karta Hai? (The Scanning Process):
+
+Jab koi request aapki website par aati hai, toh Backend Server tak pahunchne se pehle wo WAF se guzarti hai. WAF teen cheezein karta hai:
+- Inspection: Ye request ke headers, cookies, aur query strings ko scan karta hai.
+- Matching: Ye dekhta hai ki kya request ka pattern kisi "Hacker Attack" se milta-julta hai (jaise SQL Injection).
+- Action: Agar request saaf hai, toh use aage bhej deta hai. Agar suspicious hai, toh use Block kar deta hai.
+
+WAF kin Khatron (Attacks) se bachata hai? (Examples):
+
+1 - SQL Injection (SQLi):
+
+Hacker aapki website ke login box mein username ki jagah ek SQL query daal deta hai: ' OR 1=1 --. Iska maqsad aapke database se password chori karna hota hai.
+- WAF Action: WAF dekhta hai ki URL ya form mein SQL commands hain, wo turant request ko drop kar deta hai.
+
+2 - Cross-Site Scripting (XSS):
+
+Hacker aapke comment section mein ek script daal deta hai: ```<script>alert('Hacked')</script>```. Jab koi aur user wo page kholta hai, toh unka browser wo script run kar deta hai.
+- WAF Action: WAF script tags (<script>) ko pehchan leta hai aur block kar deta hai.
+
+3 - Bot Protection:
+
+Kayi baar hackers "Bots" ka use karte hain aapki site se data chori karne ya site ko slow karne ke liye.
+- WAF Action: WAF pehchan leta hai ki ye request insaan ki nahi, machine ki hai, aur use block kar sakta hai.
+
+<br>
+<br>
+
+### Real Production Example (DevOps Perspective)
+
+Suppose tum ek E-commerce site deploy karte ho:
+
+Architecture:
+- Frontend → VMSS.
+- API → AKS.
+- Admin → App Service.
+- Images → Blob Storage.
+
+Application Gateway karta hai:
+```
+/ → VMSS
+/api/* → AKS
+/admin/* → App Service
+/images/* → Blob
+```
+
+Aur saath me:
+- WAF.
+- Autoscaling.
+- SSL.
+- Health monitoring.
+
 
