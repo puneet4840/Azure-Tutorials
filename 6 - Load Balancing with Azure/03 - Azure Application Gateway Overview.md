@@ -563,4 +563,7 @@ Aur saath me:
 - SSL.
 - Health monitoring.
 
+<br>
+<br>
 
+## Next Slide mein dekhenge ki Kaise implement hota hai Azure Application Gateway.
