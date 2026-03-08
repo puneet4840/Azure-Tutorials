@@ -633,3 +633,54 @@ Edge POP
      │
 User
 ```
+
+<br>
+<br>
+
+### Real World Example
+
+Example company:
+```
+Netflix-like streaming app
+```
+
+Backend:
+```
+US East VM
+Europe VM
+Asia VM
+```
+
+Front door service created hai, front door ki configuration sahi edge location par update ho jayegi.
+
+Jab koi user agar India se front door ke ip ko hit karega to:
+```
+User → Mumbai Edge POP
+            │
+Latency check
+            │
+Asia VM select
+```
+
+user ki request uske nearest edge location par jayegi, fir waha se microsoft ke private optical fibre infra par hote huie backend server tak pahunchegi.
+
+<br>
+
+Agar koi user europe se front door ki ip hit karta hai to:
+```
+User → Amsterdam POP
+            │
+Europe VM select
+```
+
+To user ki uske nearest edge location par jayegi aur wha se microsoft ke private optical fibre infra par hote huie backend server tak pahunchegi.
+
+Result:
+```
+Fast response globally
+```
+
+<br>
+<br>
+
+### 
