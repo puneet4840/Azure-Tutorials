@@ -224,6 +224,65 @@ Azure Front Door service isi microsoft ke private infrastructure ko use karta ha
 
 <br>
 <br>
+
+### Azure Front Door kaise kaam karta hai
+
+Chalo ek Example lete hain: Maan lo aapka ek content channel hai "Simply Explains" aur uska server US (East US) mein hai, lekin aapka user India mein baitha hai.
+
+<br>
+
+**Step A: Anycast DNS**:
+
+Jab user simplyexplains.com type karta hai, toh Azure Front Door Anycast IP ka use karta hai. Anycast ka matlab hai ki ek hi IP address duniya ke saare Edge locations par advertised hai.
+
+ser ka request automatically us Edge node par jayega jo uske sabse paas (lowest latency) hai.
+
+<br>
+
+**Step B: SSL Termination at the Edge**:
+
+User ki request nearest edge location par pahunchti hai to SSL offloading hoti hai. Iska matlab hai ki edge location par hi encrypted traffic decrypt hot jata hai aur backend server ko HTTP matlab decrypt data milta hai.
+
+Security (HTTPS) ke liye handshake karna padta hai. Agar ye handshake US server tak jata, toh bahut time lagta. AFD ye handshake Edge location par hi khatam kar deta hai. Isse user ko "Instant connection" feel hota hai.
+
+<br>
+
+**Step C: Split TCP**:
+
+Normal internet mein, agar data packet khota hai, toh retransmission mein bahut time lagta hai.
+
+Split TCP mein, connection do hisson mein toot jata hai:
+- User se Edge Node tak (Short distance).
+- Edge Node se Backend Server tak (Over Microsoft Private Fiber).
+
+Isse "Round Trip Time" (RTT) drastically kam ho jata hai.
+
+<br>
+
+**Step D: HTTP Acceleration over Private Fiber**:
+
+Ab asli game shuru hota hai. Edge Node se lekar US server tak ka safar public internet par nahi hota. Microsoft apne Private Fiber par data ko "Optimized Routes" se bhejta hai.
+
+- Yahan koi traffic jams nahi hote.
+- BGP (Border Gateway Protocol) ki optimization Microsoft khud manage karta hai taaki shortest aur fastest path mile.
+
+<br>
+
+### Real World example
+
+Maan lo aapne ek video upload kiya apne Simply Explains channel ke liye jo Azure ke East US Region (Data Center) mein store hai.
+
+**Without Front Door**:
+- Bina Front Door ke: Jab Mumbai ka ek user video dekhega, request direct US jayegi. Samundar ke niche se data aane mein 250ms+ lagenge. Video buffer karega.
+
+**With Azure Front Door**:
+- Microsoft ka ek Edge Location Mumbai mein hi hai.
+- Mumbai ka user jab request karega, toh wo US nahi jayega. Request Mumbai ke Edge Node par ruk jayegi.
+- Edge Node dekhega, "Kya mere paas ye video hai?".
+- Agar hai (Cache), toh turant wahi se de dega (Latency < 20ms).
+- Agar nahi hai, toh Edge Node Microsoft ke Private Fiber ka use karke US se video layega, apne paas copy rakhega (taaki agle user ko jaldi mile), aur user ko de dega.
+
+<br>
 <br>
 
 ### Microsoft par Jab aap Front Door Service create karte ho to Backend par kya kya hota hai
@@ -684,50 +743,6 @@ Result:
 ```
 Fast response globally
 ```
-
-<br>
-<br>
-
-### Azure Front Door kaise kaam karta hai
-
-Chalo ek Example lete hain: Maan lo aapka ek content channel hai "Simply Explains" aur uska server US (East US) mein hai, lekin aapka user India mein baitha hai.
-
-<br>
-
-**Step A: Anycast DNS**:
-
-Jab user simplyexplains.com type karta hai, toh Azure Front Door Anycast IP ka use karta hai. Anycast ka matlab hai ki ek hi IP address duniya ke saare Edge locations par advertised hai.
-
-ser ka request automatically us Edge node par jayega jo uske sabse paas (lowest latency) hai.
-
-<br>
-
-**Step B: SSL Termination at the Edge**:
-
-User ki request nearest edge location par pahunchti hai to SSL offloading hoti hai.
-
-Security (HTTPS) ke liye handshake karna padta hai. Agar ye handshake US server tak jata, toh bahut time lagta. AFD ye handshake Edge location par hi khatam kar deta hai. Isse user ko "Instant connection" feel hota hai.
-
-<br>
-
-**Step C: Split TCP**:
-
-Normal internet mein, agar data packet khota hai, toh retransmission mein bahut time lagta hai.
-
-Split TCP mein, connection do hisson mein toot jata hai:
-- User se Edge Node tak (Short distance).
-- Edge Node se Backend Server tak (Over Microsoft Private Fiber).
-
-Isse "Round Trip Time" (RTT) drastically kam ho jata hai.
-
-<br>
-
-**Step D: HTTP Acceleration over Private Fiber**:
-
-Ab asli game shuru hota hai. Edge Node se lekar US server tak ka safar public internet par nahi hota. Microsoft apne Private Fiber par data ko "Optimized Routes" se bhejta hai.
-
-- Yahan koi traffic jams nahi hote.
-- BGP (Border Gateway Protocol) ki optimization Microsoft khud manage karta hai taaki shortest aur fastest path mile.
 
 <br>
 <br>
