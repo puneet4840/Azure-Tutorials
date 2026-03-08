@@ -278,3 +278,358 @@ Abhi tak traffic handling start nahi hui.
 <br>
 
 **Global Edge Configuration Propagation**
+
+Azure Front Door ek global edge network service hai.
+
+Isliye configuration sirf ek region mein nahi rehti.
+
+Azure kya karta hai:
+- Configuration ko propagate karta hai:
+- Microsoft Edge POPs (Points of Presence) par.
+
+Microsoft ke 200+ global edge locations hain.
+
+Example locations:
+- Amsterdam.
+- Singapore.
+- Tokyo.
+- Mumbai.
+- New York.
+- London.
+
+Ab Azure ye configuration bhejta hai:
+```
+Frontend domain
+Routing rules
+Backend pool
+Health probes
+WAF rules
+```
+
+Propagation ka process:
+```
+Azure Control Plane
+       │
+       ▼
+Configuration Database
+       │
+       ▼
+Edge POP Config Sync
+       │
+       ▼
+All Edge Locations
+```
+
+Usually propagation time:
+```
+~ 30 - 45 mintues
+```
+Isliye Front Door create hone ke baad thoda time lagta hai.
+
+Ab Front Door globally ready ho jata hai.
+
+<br>
+
+**Frontend Anycast IP Allocation**:
+
+Jab Front Door create hota hai to Microsoft aapke Front Door ko ek Global Anycast IP address allot karta hai. Ye IP address duniya ke har ek Edge Location (saari 190+) par advertise (broadcast) kar diya jata hai.
+
+Anycast ka matlab:
+- Same IP address world ke sabhi edge locations par available hota hai.
+
+```
+India POP
+US POP
+Europe POP
+Japan POP
+```
+Sabka IP same hota hai.
+
+- Normal Load Balancer: Iska ek fixed IP hota hai jo ek specific region mein hota hai.
+- Front Door: Iska IP address poore world mein faila hua hota hai. Jab koi user request karta hai, toh BGP (Border Gateway Protocol) routing ke zariye request uske sabse paas wale Azure Edge node par pahunchti hai.
+
+<br>
+
+**DNS Integration**:
+
+Aapko ek default hostname milta hai (e.g., ```myapp-abc.azurefd.net```). Background mein Azure apne DNS servers ko update karta hai taaki ye global IP is hostname se map ho jaye.
+
+User ka flow:
+```
+User Browser
+     │
+DNS Query
+     │
+DNS Response (FrontDoor Anycast IP)
+     │
+Nearest Edge POP
+```
+
+<br>
+
+**User Request Edge POP tak pahunchti hai**:
+
+Ab user ki request Edge Pop tak pahunchti hai.
+
+Example:
+
+User India mein hai.
+
+Browser request:
+```
+https://www.example.com
+```
+
+Request flow:
+```
+User
+  │
+ISP
+  │
+Internet
+  │
+Nearest Azure POP (Mumbai / Delhi)
+```
+
+<br>
+
+**TLS Handshake Edge par hota hai**:
+
+Agar apne front door par ssl enable kiya hai to SSL termination edge location par hi hoti hai iska matlab traffic edge location par de decrypt hoke backend server tak jata hai.
+
+Request Edge location par pahunchne ke baad, Front Door SSL termination edge par karta hai.
+
+Jab aap Front Door create karte hain, toh ye "Split TCP" feature enable kar deta hai.
+- Normal connection: User ko direct backend server (e.g., US ya Europe) tak connection banana padta hai, jisme latency zyada hoti hai.
+- Front Door: User ka TCP connection uske paas wale Edge node par hi terminate ho jata hai. Isse "Round Trip Time" (RTT) bohot kam ho jata hai. SSL/TLS handshake bhi wahi Edge node par ho jata hai, jise SSL Offloading kehte hain.
+
+User → Edge TLS handshake
+
+Process:
+```
+ClientHello
+ServerHello
+Certificate
+Key exchange
+Encryption start
+```
+
+Certificate Azure ke paas stored hota hai.
+
+Ab encrypted traffic decrypt hota hai Edge POP par.
+
+<br>
+
+**WAF Processing (Optional)**:
+
+Agar tumne Web Application Firewall enable kiya hai toh Front Door har incoming request ko inspect karne lagta hai.
+
+To request pehle WAF se pass hoti hai.
+
+Example rules:
+```
+SQL Injection
+XSS
+Bot protection
+Geo blocking
+Rate limiting
+```
+
+Flow:
+```
+Client
+   │
+Edge POP
+   │
+WAF Engine
+   │
+Allowed / Blocked
+```
+
+Example:
+```
+Request:
+/login?id=1 OR 1=1
+```
+
+WAF detect karega:
+```
+SQL Injection
+```
+Aur request block ho jayegi.
+
+<br>
+
+**Health Probe System**:
+
+Front Door continuously backend health check karta hai.
+
+Front Door background mein aapke bataye huye Backend Pools (Origin) ko monitor karna shuru kar deta hai.
+- Ye har kuch seconds mein (jo aapne configure kiya ho) aapke backend ko "Ping" ya HTTP/HTTPS request bhejta hai.
+- Agar koi backend server down hai, toh Front Door apne global nodes ko bata deta hai ki wahan traffic nahi bhejna hai.
+
+Example:
+
+Backend Pool:
+```
+vm-eastus
+vm-westus
+```
+
+Health probe request:
+```
+GET /health
+```
+Har few seconds par.
+
+Example:
+```
+Edge POP
+   │
+Microsoft Global Network
+   │
+Backend VM
+```
+
+Agar backend down ho jaye:
+```
+vm-eastus ❌
+vm-westus ✔
+```
+
+To Front Door automatically route karega:
+```
+westus
+```
+
+<br>
+
+**Routing Decision Engine**:
+
+Aap jo rules banate hain (jaise ```/images/*``` ek storage account par jaye aur ```/api/*``` ek App Service par), wo Azure ke sabhi 190+ Edge locations par deploy ho jate hain.
+
+Matlab, request backend tak pahunchne se pehle hi "Edge" par decide ho jata hai ki usse kahan bhejna hai.
+
+Front Door decide karta hai:
+- Kaunsa backend best hai.
+
+Routing methods:
+- Latency based.
+- Priority based.
+- Weighted.
+- Session affinity.
+
+Example:
+```
+Backend1 (EastUS)
+Latency = 200ms
+
+Backend2 (WestEurope)
+Latency = 100ms
+```
+Routing engine choose karega:
+```
+WestEurope
+```
+
+<br>
+
+**Backend Request Forwarding**:
+
+Ab edge pop backend server ko request bhejta hai.
+
+Request microsoft ke private infrastructure par travel karte karte us region par pahunchti hai jis region mein web server hosted hai.
+
+Example:
+```
+GET /index.html
+```
+
+Forwarding process:
+```
+Edge POP
+   │
+Microsoft Backbone
+   │
+Azure Region
+   │
+Load Balancer / App Gateway
+   │
+VM / App Service
+```
+
+Important:
+
+Front Door Layer 7 reverse proxy ki tarah kaam karta hai.
+
+Headers add karta hai:
+```
+X-Forwarded-For
+X-Azure-FDID
+X-Forwarded-Host
+```
+
+<br>
+
+**Backend Response**:
+
+Backend response bhejta hai:
+```
+HTTP 200
+HTML page
+```
+
+Flow:
+```
+Backend
+   │
+Azure Region
+   │
+Microsoft Backbone
+   │
+Edge POP
+   │
+User
+```
+
+Agar caching enabled hai:
+- Front Door cache store kar leta hai.
+
+Next request:
+```
+Edge POP se direct response
+```
+
+Backend tak request pahuncti hi nahi hai.
+
+<br>
+<br>
+
+**Summary (Complete Backend Workflow)**:
+
+Complete request lifecycle:
+```
+User Browser
+     │
+DNS Resolve
+     │
+Nearest Azure Edge POP
+     │
+TLS Termination
+     │
+WAF Inspection
+     │
+Routing Decision
+     │
+Microsoft Private Backbone
+     │
+Azure Region
+     │
+Backend (VM / App)
+     │
+Response
+     │
+Edge POP
+     │
+User
+```
