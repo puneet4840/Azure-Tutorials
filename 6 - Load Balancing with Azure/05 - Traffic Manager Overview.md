@@ -154,7 +154,7 @@ Traffic Manager decide karta hai:
 User ko kis region ke server ka IP dena chahiye. Jisse user ko website fast access ho.
 ```
 
-Yeh ek Level 7 (DNS-based) service hai. 
+Yeh DNS level par kaam karta hai.
 
 <br>
 
@@ -199,4 +199,81 @@ Isi ka matlab hai DNS-based global traffic routing.
 <br>
 
 ### Traffic Manager Kaam Kaise Karta Hai?
+
+Traffic Manager Actual Traffic Ko Route Nahi Karta. Ye bahut important concept hai jo beginners confuse kar dete hain.
+
+Traffic Manager:
+- ❌ Traffic ko proxy nahi karta.
+- ❌ request ko forward nahi karta.
+- ❌ packet ko route nahi karta.
+
+Instead:
+- ✅ DNS response change karta hai.
+
+<br>
+
+**Isko aur detail mein samjhte hain**:
+
+<br>
+
+Sabse pehle, jab aap Azure Portal mein Traffic Manager profile banate hain, toh aapko teen main cheezein define karni hoti hain:
+- **Endpoints**: Ye wo destination hain jahan aap traffic bhejna chahte hain. Ye Azure App Service ho sakti hai, Public IP ho sakta hai, ya fir aapke office ka koi on-premise server.
+- **Routing Method**: Aap Traffic Manager ko batate hain ki faisla kaise lena hai (Priority, Performance, Weighted, ya Geographic).
+- **Health Probe**: Aap ek "Monitor" set karte hain jo har 30 second mein endpoints ko check karta rehta hai ki wo "Alive" (Healthy) hain ya nahi.
+
+<br>
+
+**Step-by-Step Workflow (The Journey of a Request)**:
+
+Maante hain ki aapki ek website hai ```www.simplyexplains.com``` aur aapne ise Traffic Manager ke saath set kiya hai.
+
+Step A: User ka Request:
+
+- Jab ek user apne browser mein ```www.simplyexplains.com``` type karta hai, toh browser ko ye nahi pata ki iska IP address kya hai. Browser sabse pehle DNS Recursive Resolver (aapke Internet Provider ka DNS) ke paas jata hai aur puchta hai— "Bhai, is website ka IP kya hai?"
+
+<br>
+
+Step B: DNS Chain Reaction:
+
+- DNS resolver request ko ghumate-ghumate Azure ke Traffic Manager Name Server tak pahunchata hai. Kyunki aapne apni website ka CNAME record Traffic Manager ke URL (jaise ```myapp.trafficmanager.net```) se connect kiya hua hai.
+  
+- Jab tum Traffic Manager create karte ho to Azure ek DNS deta hai:
+```
+simplyexplains.trafficmanager.net
+```
+
+- Tum apni domain ko is par map karte ho:
+```
+www.simplyexplains.com → CNAME → simplyexplains.trafficmanager.net
+```
+
+<br>
+
+Step C: Traffic Manager ka Faisla (The Brain):
+
+Ab Traffic Manager picture mein aata hai. Wo niche di gayi teen cheezein turant check karta hai:
+- Routing Rule: Agar aapne 'Performance' rule set kiya hai, toh wo dekhega ki user ki location se sabse kam latency wala server kaunsa hai.
+- Endpoint Health: Kya wo server up hai? (Health probe se pata chalta hai).
+- Current Status: Agar primary server down hai, toh wo backup server ko dhoondhega.
+
+<br>
+
+Step D: IP Address Delivery:
+
+Traffic Manager user ko data nahi bhejta. Wo sirf Selected Server ka IP Address DNS resolver ko wapas bhej deta hai.
+
+<br>
+
+Step E: Browser Connection:
+
+Ab browser ko IP address mil gaya hai. Browser ab directly us server (e.g., Azure App Service in East US) se connect hota hai aur website load karta hai. Is point ke baad Traffic Manager ka kaam khatam ho jata hai. Browser aur Server ke beech hone wali saari baatein (Images, Videos, Data) seedhi hoti hain, Traffic Manager ke through nahi jati.
+
+<br>
+<br>
+
+**Important Point: DNS Caching aur TTL (Time-To-Live)**:
+
+Ye sabse important point hai. DNS records computer mein "Cache" ho jate hain.
+- Azure Traffic Manager ka default TTL 300 seconds (5 minutes) hota hai.
+- Iska matlab agar koi server down ho gaya, toh shayad 5 minute tak users ko purana IP hi milta rahe kyunki browser sabse pehle locally DNS check karta hai aur DNS ke records local hosts file mein save ho jate hain. Aap ise kam karke 30-60 seconds bhi kar sakte hain fast failover ke liye.
 
