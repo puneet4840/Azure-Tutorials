@@ -277,3 +277,9 @@ Ye sabse important point hai. DNS records computer mein "Cache" ho jate hain.
 - Azure Traffic Manager ka default TTL 300 seconds (5 minutes) hota hai.
 - Iska matlab agar koi server down ho gaya, toh shayad 5 minute tak users ko purana IP hi milta rahe kyunki browser sabse pehle locally DNS check karta hai aur DNS ke records local hosts file mein save ho jate hain. Aap ise kam karke 30-60 seconds bhi kar sakte hain fast failover ke liye.
 
+<br>
+<br>
+<br>
+
+### Traffic Manager ke components
+
