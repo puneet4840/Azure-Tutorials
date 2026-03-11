@@ -552,3 +552,4 @@ Is tarah ka architecture global scale systems mein kaafi common hai.
 <br>
 <br>
 
+## Ab aage slide mein hum Azure Traffic Manager ke Components aur Routing rule ko dekhenge
