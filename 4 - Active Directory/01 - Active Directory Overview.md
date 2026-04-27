@@ -84,7 +84,72 @@ Jab koi employee apne office computer par login karta hai, to AD:
 - **Authorize** karti hai —  इसे कौन-कौन सी files/resources access करने की permission है?
 - **Apply** करती है — company policies automatically लागू करती है.
 
+**Authentication**: “Tum kaun ho?”
+
+Example:
+
+Username: ```puneet```
+Password: ```********```
+
+AD verify karega:
+- User exist karta?
+- Password correct?
+- Account locked?
+- Expired?
+- Disabled?
+
+**Authorization**: “Tum kya kar sakte ho?”
+
+Example:
+
+Puneet DevOps team mein hai:
+- AWS docs access ✅
+- HR salary folder ❌
+-s Production server SSH ✅
+- Finance reports ❌
+
 <br>
+
+### Problem Without Active Directory
+
+Example:
+
+Company mein 1000 employees hain.
+
+Har employee ko:
+- Login chahiye.
+- Email access chahiye.
+- Printer access chahiye.
+- Shared drive access chahiye.
+- Department-specific permissions chahiye.
+
+Agar AD nahi ho:
+
+IT admin ko har computer pe manually:
+- User banana.
+- Password set karna.
+- Permissions dena.
+- Software install karna.
+- Security configure karna.
+
+Solution = Active Directory
+
+Active Directory ek centralized identity aur management system hai.
+
+Iska matlab, Ek central server decide karega:
+
+WHO:
+- Kaun user hai?
+
+WHAT:
+- Kya access kar sakta hai?
+
+WHERE:
+- Kis machine ya resource par jaa sakta hai?
+
+HOW:
+- Kaunsi policies apply hongi?
+
 <br>
 
 ### Active Directory Ki History:
