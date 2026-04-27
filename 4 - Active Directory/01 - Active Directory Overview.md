@@ -56,5 +56,50 @@ Directory ka matlab ek esa storeage system jaha data organize way mein store rah
 
 ### Active Directory Kya Hoti Hai?
 
+Active Directory (AD) Microsoft ka ek Directory Service hai jo Windows network mein user, computer, printers, policies, permissions, aur resources ko centrally manage karne ke liye use hoti hai.
 
+**Simple words mein**:
+
+Socho ek badi company hai jisme 5000 employees hain. Har employee ke paas ek computer hai, aur har computer pe alag-alag software hain. Ab agar IT admin ko har computer pe manually jaake settings karna pade, passwords manage karna pade — toh yeh toh nightmare ho jaayega!
+
+Is situation mein Active Directory kaam aata hai.
+
+Active Directory ek central system deta hai jahan se:
+- User login manage hota hai.
+- Password control hota hai.
+- Kaun kya access karega decide hota hai.
+- Computer policies apply hoti hain.
+- Security centralized hoti hai.
+
+Active Directory ke ander user, computer, printers, policies, permissions, aur resources ki detailes stored rehti hai.
+
+Active Directory ka main kaam hai **Authentication** aur **Authorization** karna.
+
+<br>
+
+**AD kaam kaise karti hai?**:
+
+Jab koi employee apne office computer par login karta hai, to AD:
+- **Authenticate** karti hai — क्या यह सही user है?
+- **Authorize** karti hai —  इसे कौन-कौन सी files/resources access करने की permission है?
+- **Apply** करती है — company policies automatically लागू करती है.
+
+<br>
+<br>
+
+### Active Directory Ki History:
+- 1999 mein Microsoft ne AD ko Windows Server 2000 ke saath launch kiya.
+- Pehle sirf on-premise tha (matlab physical servers pe).
+- Aaj Azure Active Directory (AAD) bhi hai — jo cloud-based version hai.
+- Modern naam: Microsoft Entra ID (Azure AD ka naya naam).
+
+<br>
+
+### Active Directory ke main components:
+
+- **Domain** — एक organization का network group (जैसे company.com).
+- **Domain Controller (DC)** — वह server जो AD को run करता है, यह network का "brain" होता है.
+- **Users & Groups** — employees के accounts और उनके groups.
+- **Organizational Units (OU)** — departments को organize करने का तरीका (HR, IT, Finance)
+- **Group Policy (GPO)** — rules जो automatically सभी computers पर apply होती हैं (जैसे password policy).
 
