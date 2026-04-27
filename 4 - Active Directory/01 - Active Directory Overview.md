@@ -84,6 +84,8 @@ Jab koi employee apne office computer par login karta hai, to AD:
 - **Authorize** karti hai —  इसे कौन-कौन सी files/resources access करने की permission है?
 - **Apply** करती है — company policies automatically लागू करती है.
 
+<br>
+
 **Authentication**: “Tum kaun ho?”
 
 Example:
